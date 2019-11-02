@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Deleted Film</title>
+<title>Film Status</title>
 </head>
 <body>
 ${result}
