@@ -244,10 +244,12 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 		      }
 		    }
 		    throw new RuntimeException("Error inserting film " + film.getTitle());
+		    
 		  }
 		
 		
 		return newFilm;
+
 		
 	}
 	@Override
