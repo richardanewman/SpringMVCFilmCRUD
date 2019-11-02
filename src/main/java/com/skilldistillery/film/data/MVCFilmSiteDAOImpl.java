@@ -232,6 +232,7 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 			pst.close();
 			conn.close();
 			
+			return film;
 		} catch (SQLException sqle) {
 		    sqle.printStackTrace();
 		    if (conn != null) {
@@ -241,10 +242,10 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 		      }
 		    }
 		    throw new RuntimeException("Error inserting film " + film.getTitle());
+		    
 		  }
 		
 		
-		return film;
 		
 	}
 	@Override

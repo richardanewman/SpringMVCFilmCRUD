@@ -50,7 +50,6 @@
 		<form:password path="specialFeatures" />
 		<form:errors path="specialFeatures" />
 		<br />
-		<input type="submit" value="Register" />
 	    <input type="submit" value="Submit" />
 	</form:form>
 </body>
