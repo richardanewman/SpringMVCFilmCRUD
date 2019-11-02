@@ -58,13 +58,31 @@ public class FilmController {
 		Film film= filmDAO.findFilmById(filmId);
 		if(filmDAO.deleteFilm(film)) {
 			mv.addObject("result", "Movie was deleted!");
-			mv.setViewName("/WEB-INF/deletedFilm.jsp");
+			mv.setViewName("/WEB-INF/status.jsp");
 			return mv;
 		}
 		
 		else{
 			mv.addObject("result", "Movie was not deleted!");
-			mv.setViewName("/WEB-INF/deletedFilm.jsp");
+			mv.setViewName("/WEB-INF/status.jsp");
+			return mv;
+		}
+		
+	}
+	
+	@RequestMapping(path="editFilm.do", method = RequestMethod.POST, params="id")
+	private ModelAndView updateFilm(@RequestParam("id") int filmId) {
+		ModelAndView mv = new ModelAndView();
+		Film film= filmDAO.findFilmById(filmId);
+		if(filmDAO.updateFilm(film)) {
+			mv.addObject("result", "Film was updated!");
+			mv.setViewName("/WEB-INF/status.jsp");
+			return mv;
+		}
+		
+		else{
+			mv.addObject("result", "Film was not updated!");
+			mv.setViewName("/WEB-INF/status.jsp");
 			return mv;
 		}
 		

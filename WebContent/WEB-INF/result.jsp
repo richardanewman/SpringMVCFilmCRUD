@@ -24,6 +24,12 @@
 	<input type="text" name="id">
 	<input type="submit" value="Delete Film" />
 	</form>
+	<br>
+	<form action="editFilm.do" method="POST">
+	Please enter film ID to edit fields:
+	<input type="text" name="id">
+	<input type="submit" value="Edit Film" />
+	</form>
 
 </body>
 </html>
