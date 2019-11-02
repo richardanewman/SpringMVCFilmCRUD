@@ -20,6 +20,8 @@
 	<br>
 	<br>
 	<form action="deleteFilm.do" method="POST">
+	Please enter film ID to confirm deletion:
+	<input type="text" name="id">
 	<input type="submit" value="Delete Film" />
 	</form>
 	
