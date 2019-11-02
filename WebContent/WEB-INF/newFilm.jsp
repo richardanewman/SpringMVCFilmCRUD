@@ -10,8 +10,8 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${! empty film}">
-      ${film}
+		<c:when test="${! empty newfilm}">
+      ${newfilm}
     </c:when>
 		<c:otherwise>
 			<p>Error. No film created.</p>

@@ -31,24 +31,28 @@
 			<form:option value="6">German</form:option>
 		</form:select>
 		<form:label path="rentalDuration">Rental Duration:</form:label>
-		<form:password path="rentalDuration" />
+		<form:input path="rentalDuration" />
 		<form:errors path="rentalDuration" />
 		<br />
 		<form:label path="length">Length:</form:label>
-		<form:password path="length" />
+		<form:input path="length" />
 		<form:errors path="length" />
 		<br />
 		<form:label path="replacementCost">Replacement Cost:</form:label>
-		<form:password path="replacementCost" />
+		<form:input path="replacementCost" />
 		<form:errors path="replacementCost" />
 		<br />
 		<form:label path="rating">Rating:</form:label>
-		<form:password path="rating" />
+		<form:input path="rating" />
 		<form:errors path="rating" />
 		<br />
-		<form:label path="specialFeatures">Special Features:</form:label>
-		<form:password path="specialFeatures" />
-		<form:errors path="specialFeatures" />
+		<form:select path="specialFeatures">Special Features: 
+			<form:option value="Trailers">Trailers</form:option>
+			<form:option value="Commentaries">Commentaries</form:option>
+			<form:option value="Deleted Scenes">Deleted Scenes</form:option>
+			<form:option value="Behind the Scenes">Behind the Scenes</form:option>
+			<form:option value="None">None</form:option>
+		</form:select>
 		<br />
 	    <input type="submit" value="Submit" />
 	</form:form>

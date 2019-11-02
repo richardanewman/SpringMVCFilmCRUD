@@ -209,15 +209,18 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
-			String sql = "insert into film(title, description, release_year, language_id, length, rating) values(?, ?, ?, ?, ?, ?)";
+			String sql = "insert into film(title, description, release_year, language_id, rental_duration, length, replacement_cost, rating, special_features) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			conn.setAutoCommit(false);
 			PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			pst.setString(1, newFilm.getTitle());
 			pst.setString(2, newFilm.getDescription());
 			pst.setInt(3, newFilm.getReleaseYear());
 			pst.setInt(4, newFilm.getLanguageId());
-			pst.setInt(5, newFilm.getLength());
-			pst.setString(6, newFilm.getRating());
+			pst.setInt(5, newFilm.getRentalDuration());
+			pst.setInt(6, newFilm.getLength());
+			pst.setDouble(7, newFilm.getReplacementCost());
+			pst.setString(8, newFilm.getRating());
+			pst.setString(9, newFilm.getSpecialFeatures());
 			
 			int updateCount = pst.executeUpdate();
 		    if (updateCount == 1) {

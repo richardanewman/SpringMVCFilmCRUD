@@ -38,8 +38,8 @@ public class FilmController {
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
 	public ModelAndView createFilm(@Valid Film film) {
 		ModelAndView mv = new ModelAndView();
-		Film newFilm= filmDAO.createFilm(film);
-		mv.addObject("newfilm",newFilm);
+		Film newFilm = filmDAO.createFilm(film);
+		mv.addObject("newfilm", newFilm);
 		mv.setViewName("WEB-INF/newFilm.jsp");
 		return mv;
 		
