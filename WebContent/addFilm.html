@@ -5,6 +5,46 @@
 <title>Add New Film</title>
 </head>
 <body>
+<h1>Welcome to Almost IMDB</h1>
+<h2>Add A New Film To Database</h2>
+<p>Please use the fields below to add a new film to our database.</p>
 
+<form action="createFilm.do" method="POST">
+	Title:
+	<input type="text" name="title"/>
+	<br>
+	Description:
+	<input type="text" name="description"/>  
+	<br>
+	Release Year:
+	<input type="text" name="releaseYear"/>  
+	<br>
+	Language:
+	<select name="languageId">
+	  <option value="1">English</option>
+	  <option value="2">Italian</option>
+	  <option value="3">Japanese</option>
+	  <option value="4">Mandarin</option>
+	  <option value="5">French</option>
+	  <option value="6">German</option>
+	</select>  
+	<br>
+	Rental Duration:
+	<input type="text" name="rentalDuration"/> 
+	<br> 
+	Length (minutes):
+	<input type="text" name="length"/>  
+	<br>
+	Replacement Cost:
+	<input type="text" name="replacementCost"/>  
+	<br>
+	Rating:
+	<input type="text" name="rating"/>  
+	<br>
+	Special Features:
+	<input type="text" name="specialFeatures"/>  
+	<br>  
+    <input type="submit" value="Submit" />
+</form>
 </body>
 </html>
