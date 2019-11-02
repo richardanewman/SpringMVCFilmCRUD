@@ -2,6 +2,8 @@ package com.skilldistillery.film.entities;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 import com.skilldistillery.film.data.MVCFilmSiteDAOImpl;
 
 public class Film {
@@ -16,6 +18,7 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private String specialFeatures;
+	
 	private FilmCategory category;
 	private List<Actor> actors;
 	
