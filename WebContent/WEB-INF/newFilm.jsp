@@ -19,6 +19,9 @@
 	</c:choose>
 	<br>
 	<br>
-
+	<form action="deleteFilm.do" method="POST">
+	<input type="submit" value="Delete Film" />
+	</form>
+	
 </body>
 </html>
