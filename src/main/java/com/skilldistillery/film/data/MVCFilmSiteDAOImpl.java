@@ -288,6 +288,52 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 		
 		
 	}
+	@Override
+	public boolean updateFilm(Film film) {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id=?, rental_duration=?, length=?, replacement_cost=?, rating=?, special_features=? WHERE id=?;";
+			conn.setAutoCommit(false);
+			PreparedStatement pst = conn.prepareStatement(sql);
+			
+			pst.setString(1, film.getTitle());
+			pst.setString(2, film.getDescription());
+			pst.setInt(3, film.getReleaseYear());
+			pst.setInt(4, film.getLanguageId());
+			pst.setInt(5, film.getRentalDuration());
+			pst.setInt(6, film.getLength());
+			pst.setDouble(7, film.getReplacementCost());
+			pst.setString(8, film.getRating());
+			pst.setString(9, film.getSpecialFeatures());
+			pst.setInt(10, film.getId());
+			
+			int updateCount = pst.executeUpdate();
+			if (updateCount == 1) {
+				System.out.println("You successfully Udated " + updateCount + " record.");
+			}
+			conn.commit();
+			pst.close();
+			conn.close();
+			
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try { conn.rollback(); }
+				catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+					
+				}
+				
+			}
+			throw new RuntimeException("Error inserting film " + film.getTitle());
+		}
+		
+		return true;
+		
+		
+		
+	}
 
 }
 
