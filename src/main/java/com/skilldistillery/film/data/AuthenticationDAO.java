@@ -1,5 +1,7 @@
 package com.skilldistillery.film.data;
 
+import com.skilldistillery.film.entities.User;
+
 public interface AuthenticationDAO {
 	public User create(User user);
 
