@@ -247,7 +247,7 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 		  }
 		
 		
-		return film;
+		return newFilm;
 		
 	}
 	@Override
