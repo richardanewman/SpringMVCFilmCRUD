@@ -1,7 +1,13 @@
 package com.skilldistillery.film.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,15 +35,29 @@ public class FilmController {
 
 	}
 	
-	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST, params = {"title", "description", "release_year", "language_id", "rental_duration", "rental_rate", "length", "replacement_cost", "rating", "special_features"})
-	public ModelAndView createFilm(Film film) {
+	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
+	public ModelAndView createFilm(@Valid Film film) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("newfilm", filmDAO.createFilm(film));
-		mv.setViewName("WEB-INF/result.jsp");
+		Film newFilm= filmDAO.createFilm(film);
+		mv.addObject("newfilm",newFilm);
+		mv.setViewName("WEB-INF/newFilm.jsp");
+		return mv;
+		
+	}   
+	
+	@RequestMapping(path="addFilm.do", method = RequestMethod.GET)
+	private ModelAndView getForm(@Valid Film film) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/WEB-INF/addFilm.jsp");
+		return mv;
+
+	}
+	@RequestMapping(path="index.do", method = RequestMethod.GET)
+	private ModelAndView getIndex() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("index.html");
 		return mv;
 		
 	}
 	
-	
-
 }
