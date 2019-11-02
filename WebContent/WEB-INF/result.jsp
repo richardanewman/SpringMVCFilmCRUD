@@ -11,7 +11,7 @@
 <body>
 	<c:choose>
 		<c:when test="${! empty film}">
-      ${fim}
+      ${film}
     </c:when>
 		<c:otherwise>
 			<p>No film found</p>

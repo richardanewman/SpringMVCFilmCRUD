@@ -22,8 +22,8 @@ public class FilmController {
 	@RequestMapping(path = "findFilmById.do", method = RequestMethod.GET, params = "id")
 	public ModelAndView findFilmByID(@RequestParam("id") int filmId) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/result.jsp");
 		mv.addObject("film", filmDAO.findFilmById(filmId));
+		mv.setViewName("WEB-INF/result.jsp");
 		return mv;
 
 	}

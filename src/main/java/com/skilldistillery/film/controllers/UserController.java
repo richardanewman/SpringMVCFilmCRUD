@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.film.data.AuthenticationDAO;
 import com.skilldistillery.film.entities.User;
 
-@Controller
+
 public class UserController {
 
 	

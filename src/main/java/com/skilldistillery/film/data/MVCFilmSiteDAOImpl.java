@@ -9,20 +9,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.skilldistillery.film.entities.Actor;
-import com.skilldistillery.film.entities.FilmCategory;
 import com.skilldistillery.film.entities.Film;
+import com.skilldistillery.film.entities.FilmCategory;
 import com.skilldistillery.film.entities.Language;
 
-
+@Component
 public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 	
-	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
+	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
 	private static final String USER = "student";
 	private static final String PASSWORD = "student";
 
 	static {
-		try {
+		try { 
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			System.out.println("42");
