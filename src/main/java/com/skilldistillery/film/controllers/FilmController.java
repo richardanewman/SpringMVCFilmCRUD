@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.data.MVCFilmSiteDAO;
+import com.skilldistillery.film.entities.Film;
 
 @Controller
 public class FilmController {
@@ -27,5 +28,16 @@ public class FilmController {
 		return mv;
 
 	}
+	
+	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST, params = {"title", "description", "release_year", "language_id", "rental_duration", "rental_rate", "length", "replacement_cost", "rating", "special_features"})
+	public ModelAndView createFilm(Film film) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("newfilm", filmDAO.createFilm(film));
+		mv.setViewName("WEB-INF/result.jsp");
+		return mv;
+		
+	}
+	
+	
 
 }
