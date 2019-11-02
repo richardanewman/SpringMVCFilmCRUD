@@ -211,42 +211,17 @@ public class Film {
 		
 	}
 
+	
+		
 	@Override
 	public String toString() {
-		MVCFilmSiteDAOImpl db = new MVCFilmSiteDAOImpl();
-		StringBuilder builder = new StringBuilder();
-		builder.append("\n");
-		builder.append("\nFilm ID: ");
-		builder.append(id);
-		builder.append("\nTitle: ");
-		builder.append(title);
-		builder.append("\nDescription: ");
-		builder.append(description);
-		builder.append("\nRelease Year: ");
-		builder.append(releaseYear);
-		builder.append("\nLanguage: ");
-		builder.append(db.getLanguage(languageId));
-		builder.append("\nRental Duration: ");
-		builder.append(rentalDuration);
-		builder.append("\nLength: ");
-		builder.append(length);
-		builder.append("\nReplacement Cost: ");
-		builder.append(replacementCost);
-		builder.append("\nRating: ");
-		builder.append(rating);
-		builder.append("\nSpecial Features: ");
-		builder.append(specialFeatures);
-		builder.append("\nFilm cast: ");
-		for (int i = 0; i < actors.size(); i++) {
-			builder.append(actors.get(i));
-			if (i < actors.size() - 1) {
-				builder.append(", ");
-			}
-			
-		}
-		return builder.toString();
-		
+		return "Film [id=" + id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
+				+ ", languageId=" + languageId + ", rentalDuration=" + rentalDuration + ", length=" + length
+				+ ", replacementCost=" + replacementCost + ", rating=" + rating + ", specialFeatures=" + specialFeatures;
 	}
+
+
+
 
 	@Override
 	public int hashCode() {
