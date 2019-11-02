@@ -58,13 +58,13 @@ public class FilmController {
 		Film film= filmDAO.findFilmById(filmId);
 		if(filmDAO.deleteFilm(film)) {
 			mv.addObject("result", "Movie was deleted!");
-			mv.setViewName("/WEB-INF/deletFilm.jsp");
+			mv.setViewName("/WEB-INF/deletedFilm.jsp");
 			return mv;
 		}
 		
 		else{
 			mv.addObject("result", "Movie was not deleted!");
-			mv.setViewName("/WEB-INF/deletFilm.jsp");
+			mv.setViewName("/WEB-INF/deletedFilm.jsp");
 			return mv;
 		}
 		
