@@ -289,7 +289,7 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 		
 	}
 	@Override
-	public boolean updateFilm(Film film) {
+	public boolean updateFilm(Film film, int filmid) {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -306,7 +306,7 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 			pst.setDouble(7, film.getReplacementCost());
 			pst.setString(8, film.getRating());
 			pst.setString(9, film.getSpecialFeatures());
-			pst.setInt(10, film.getId());
+			pst.setInt(10, filmid);
 			
 			int updateCount = pst.executeUpdate();
 			if (updateCount == 0) {

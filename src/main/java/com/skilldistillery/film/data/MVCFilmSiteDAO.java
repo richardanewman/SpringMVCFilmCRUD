@@ -25,6 +25,6 @@ public interface MVCFilmSiteDAO {
 	public List<Actor> findActorsByFilmId(int filmId);
 
 
-	boolean updateFilm(Film film);
+	public boolean updateFilm(Film film, int filmid);
 
 }
