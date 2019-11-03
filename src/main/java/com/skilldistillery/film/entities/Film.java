@@ -182,8 +182,8 @@ public class Film {
 		this.length = length;
 		this.rating = rating;
 	}
-
-	public String filmDisplay() {
+	
+	public String displayFilm() {
 		MVCFilmSiteDAOImpl db = new MVCFilmSiteDAOImpl();
 		StringBuilder builder = new StringBuilder();
 		builder.append("\n");
@@ -215,7 +215,7 @@ public class Film {
 		
 	@Override
 	public String toString() {
-		return "Film [id=" + id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
+		return "Film Id: " + id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
 				+ ", languageId=" + languageId + ", rentalDuration=" + rentalDuration + ", length=" + length
 				+ ", replacementCost=" + replacementCost + ", rating=" + rating + ", specialFeatures=" + specialFeatures;
 	}

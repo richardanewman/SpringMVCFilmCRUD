@@ -1,5 +1,7 @@
 package com.skilldistillery.film.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,7 @@ public class FilmController {
 	@RequestMapping(path = "findFilmById.do", method = RequestMethod.GET, params = "id")
 	public ModelAndView findFilmByID(@RequestParam("id") int filmId) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("film", filmDAO.findFilmById(filmId));
+		mv.addObject("film", filmDAO.findFilmById(filmId).displayFilm());
 		mv.setViewName("WEB-INF/result.jsp");
 		return mv;
 
@@ -45,14 +47,32 @@ public class FilmController {
 
 	}
 
-	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET)
+	@RequestMapping(path = "addFilmForm.do", method = RequestMethod.GET)
 	private ModelAndView getForm(@Valid Film film) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/WEB-INF/addFilm.jsp");
 		return mv;
 
 	}
-
+	
+	@RequestMapping(path = "searchFilm.do", method = RequestMethod.GET, params = "keyword")
+	public ModelAndView searchFilm(@RequestParam("keyword") String keyword) {
+		ModelAndView mv = new ModelAndView();
+		List<Film> films = filmDAO.findFilmBySearch(keyword);
+		if (films.isEmpty()){
+			mv.addObject("result", "No matching films found!");
+			mv.setViewName("/WEB-INF/status.jsp");
+			return mv;
+		}
+		
+		else {
+			mv.addObject("result", "Here is a list of films we found matching your keyword:<br>");
+			mv.addObject("films", films);
+			mv.setViewName("/WEB-INF/status.jsp");
+			return mv;
+		}
+		
+	}
 	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.POST, params = "id")
 	private ModelAndView deleteFilm(@RequestParam("id") int filmId) {
 		ModelAndView mv = new ModelAndView();
@@ -62,13 +82,13 @@ public class FilmController {
 			mv.setViewName("/WEB-INF/status.jsp");
 			return mv;
 		}
-
+		
 		else {
 			mv.addObject("result", "Movie was not deleted!");
 			mv.setViewName("/WEB-INF/status.jsp");
 			return mv;
 		}
-
+		
 	}
 
 	@RequestMapping(path = "editFilmForm.do", method = RequestMethod.GET, params = "id")
