@@ -94,18 +94,20 @@ public class FilmController {
 				}
 
 				else {
-					mv.addObject("actor", "Invalid Film, try Again!");
+					mv.addObject("actor", "Invalid Actor, try Again!");
 					mv.setViewName("WEB-INF/actorByID.jsp");
 				}
-			} else {
-				mv.addObject("actor", "Invalid Film, try Again!");
+			} 
+			
+			else {
+				mv.addObject("actor", "Invalid Actor, try Again!");
 				mv.setViewName("WEB-INF/actorByID.jsp");
 			}
 
 		}
 
 		else {
-			mv.addObject("actor", "Invalid Film, try Again!");
+			mv.addObject("actor", "Invalid Actor, try Again!");
 			mv.setViewName("WEB-INF/actorByID.jsp");
 		}
 
@@ -123,12 +125,13 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "addFilmForm.do", method = RequestMethod.GET)
-	private ModelAndView getForm(@Valid Actor film) {
+	private ModelAndView getForm(@Valid Film film) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/WEB-INF/addActorForm.jsp");
+		mv.setViewName("/WEB-INF/addFilm.jsp");
 		return mv;
-
+		
 	}
+	
 
 	@RequestMapping(path = "createActor.do", method = RequestMethod.POST)
 	public ModelAndView createActor(@Valid Actor actor) {
@@ -139,11 +142,19 @@ public class FilmController {
 		return mv;
 
 	}
+	
+	@RequestMapping(path = "addActorForm.do", method = RequestMethod.GET)
+	private ModelAndView getForm(@Valid Actor film) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/WEB-INF/addActorForm.jsp");
+		return mv;
+		
+	}
 
 	@RequestMapping(path = "addActorForm.do", method = RequestMethod.GET)
 	private ModelAndView getActorForm(@Valid Actor actor) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/WEB-INF/addActorForm.jsp");
+		mv.setViewName("/WEB-INF/addActor.jsp");
 		return mv;
 
 	}
@@ -152,6 +163,7 @@ public class FilmController {
 	public ModelAndView searchFilm(@RequestParam("keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = filmDAO.findFilmBySearch(keyword);
+		
 		if (films.isEmpty()) {
 			mv.addObject("result", "No matching films found!");
 			mv.setViewName("/WEB-INF/status.jsp");
