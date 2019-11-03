@@ -55,6 +55,11 @@ public class FilmController {
 					mv.setViewName("WEB-INF/filmByID.jsp");
 				}
 			}
+			
+			else {
+				mv.addObject("film", "Invalid Film, try Again!");
+				mv.setViewName("WEB-INF/filmByID.jsp");
+			}
 
 		}
 

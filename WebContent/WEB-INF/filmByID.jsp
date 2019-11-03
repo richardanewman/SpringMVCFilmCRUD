@@ -3,14 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
+<link href="resources/css/styles.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Find Film by ID</title>
 </head>
 <body>
-	<h1>Welcome to Almost IMDB</h1>
+	<h1>Welcome to Almost IMDB JSP</h1>
 	<h2>Find A Film by ID</h2>
 			${film}
 	<p>Please use the fields below to find a film in our database by ID
