@@ -18,13 +18,13 @@ import com.skilldistillery.film.entities.Language;
 
 @Component
 public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
-	
+
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
 	private static final String USER = "student";
 	private static final String PASSWORD = "student";
 
 	static {
-		try { 
+		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			System.out.println("42");
@@ -56,7 +56,8 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 				String features = rs.getString("special_features");
 				FilmCategory category = getCategory(id);
 				List<Actor> actors = findActorsByFilmId(filmId);
-				film = new Film(id, title, desc, releaseYear, langId, rentDur, length, repCost, rating, features, category, actors);
+				film = new Film(id, title, desc, releaseYear, langId, rentDur, length, repCost, rating, features,
+						category, actors);
 			}
 			rs.close();
 			pst.close();
@@ -105,7 +106,7 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 				String firstName = rs.getString("first_name");
 				String lastName = rs.getString("last_name");
 				Actor actor = new Actor(id, firstName, lastName);
-				actors.add(actor);	
+				actors.add(actor);
 			}
 			rs.close();
 			pst.close();
@@ -115,7 +116,7 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 			e.printStackTrace();
 		}
 		return actors;
-		
+
 	}
 
 	@Override
@@ -144,7 +145,8 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 				String features = rs.getString("special_features");
 				FilmCategory category = getCategory(id);
 				List<Actor> actors = findActorsByFilmId(id);
-				film = new Film(id, title, description, releaseYear, langId, rentDur, length, repCost, rating, features, category, actors);
+				film = new Film(id, title, description, releaseYear, langId, rentDur, length, repCost, rating, features,
+						category, actors);
 				films.add(film);
 			}
 			rs.close();
@@ -203,6 +205,7 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 		}
 		return cat;
 	}
+
 	@Override
 	public Film createFilm(Film film) {
 		Film newFilm = film;
@@ -221,37 +224,81 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 			pst.setDouble(7, newFilm.getReplacementCost());
 			pst.setString(8, newFilm.getRating());
 			pst.setString(9, newFilm.getSpecialFeatures());
-			
+
 			int updateCount = pst.executeUpdate();
-		    if (updateCount == 1) {
-		      ResultSet keys = pst.getGeneratedKeys();
-		      if (keys.next()) {
-		        int newFilmId = keys.getInt(1);
-		        newFilm.setId(newFilmId);
-		      }
-		      keys.close();
-		    }
-		    conn.commit();
+			if (updateCount == 1) {
+				ResultSet keys = pst.getGeneratedKeys();
+				if (keys.next()) {
+					int newFilmId = keys.getInt(1);
+					newFilm.setId(newFilmId);
+				}
+				keys.close();
+			}
+			conn.commit();
 			pst.close();
 			conn.close();
-			
+
 		} catch (SQLException sqle) {
-		    sqle.printStackTrace();
-		    if (conn != null) {
-		      try { conn.rollback(); }
-		      catch (SQLException sqle2) {
-		        System.err.println("Error trying to rollback");
-		      }
-		    }
-		    throw new RuntimeException("Error inserting film " + film.getTitle());
-		    
-		  }
-		
-		
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			throw new RuntimeException("Error inserting film " + film.getTitle());
+
+		}
+
 		return newFilm;
 
-		
 	}
+
+	@Override
+	public Actor createActor(Actor actor) {
+		Actor newActor = actor;
+		Connection conn = null;
+
+		try {
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			String sql = "INSERT INTO actor(first_name, last_name) VALUES(?,?)";
+			conn.setAutoCommit(false);
+			PreparedStatement pst = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+			pst.setString(1, newActor.getFirstName());
+			pst.setString(2, newActor.getLastName());
+
+			int updateCount = pst.executeUpdate();
+			if (updateCount == 1) {
+				ResultSet keys = pst.getGeneratedKeys();
+				if (keys.next()) {
+					int newActorId = keys.getInt(1);
+					newActor.setId(newActorId);
+				}
+				keys.close();
+			}
+			conn.commit();
+			pst.close();
+			conn.close();
+
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			throw new RuntimeException("Error inserting film " + actor.getFirstName() + " " + actor.getLastName());
+
+		}
+
+		return newActor;
+
+	}
+
 	@Override
 	public boolean deleteFilm(Film film) {
 		Connection conn = null;
@@ -261,33 +308,69 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 			conn.setAutoCommit(false);
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, film.getId());
-			
+
 			int updateCount = pst.executeUpdate();
-		    if (updateCount == 1) {
-		     System.out.println("You successfully deleted " + updateCount + " record.");
-		    }
-		    conn.commit();
+			if (updateCount == 1) {
+				System.out.println("You successfully deleted " + updateCount + " record.");
+			}
+			conn.commit();
 			pst.close();
 			conn.close();
-			
+
 		} catch (SQLException sqle) {
-		    sqle.printStackTrace();
-		    if (conn != null) {
-		      try { conn.rollback(); }
-		      catch (SQLException sqle2) {
-		        System.err.println("Error trying to rollback");
-		        
-		      }
-		     
-		    }
-		    throw new RuntimeException("Error inserting film " + film.getTitle());
-		  }
-		
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+
+				}
+
+			}
+			throw new RuntimeException("Error inserting film " + film.getTitle());
+		}
+
 		return true;
-		
-		
-		
+
 	}
+
+	@Override
+	public boolean deleteActor(Actor actor) {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			String sql = "DELETE FROM actor WHERE id = ?";
+			conn.setAutoCommit(false);
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, actor.getId());
+
+			int updateCount = pst.executeUpdate();
+			if (updateCount == 1) {
+				System.out.println("You successfully deleted " + updateCount + " record.");
+			}
+			conn.commit();
+			pst.close();
+			conn.close();
+
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+
+				}
+
+			}
+			throw new RuntimeException("Error inserting film " + actor.getFirstName() + " " + actor.getLastName());
+		}
+
+		return true;
+
+	}
+
 	@Override
 	public boolean updateFilm(Film film, int filmid) {
 		Connection conn = null;
@@ -296,7 +379,7 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 			String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id=?, rental_duration=?, length=?, replacement_cost=?, rating=?, special_features=? WHERE id=?";
 			conn.setAutoCommit(false);
 			PreparedStatement pst = conn.prepareStatement(sql);
-			
+
 			pst.setString(1, film.getTitle());
 			pst.setString(2, film.getDescription());
 			pst.setInt(3, film.getReleaseYear());
@@ -307,7 +390,7 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 			pst.setString(8, film.getRating());
 			pst.setString(9, film.getSpecialFeatures());
 			pst.setInt(10, filmid);
-			
+
 			int updateCount = pst.executeUpdate();
 			if (updateCount == 0) {
 				return false;
@@ -315,29 +398,65 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 			conn.commit();
 			pst.close();
 			conn.close();
-			
+
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
-				try { conn.rollback(); }
-				catch (SQLException sqle2) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
 					System.err.println("Error trying to rollback");
-					
+
 				}
-				
+
 			}
+
 			throw new RuntimeException("Error inserting film " + film.getTitle());
 		}
-		
+
 		return true;
-		
-		
-		
+
 	}
 
-	
+	@Override
+	public boolean updateActor(Actor actor, int actorid) {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			String sql = "UPDATE actor SET first_name=?, last_name=? WHERE id=?";
+			
+			conn.setAutoCommit(false);
+			PreparedStatement pst = conn.prepareStatement(sql);
+
+			pst.setString(1, actor.getFirstName());
+			pst.setString(2, actor.getLastName());
+			pst.setInt(3, actorid);
+
+			int updateCount = pst.executeUpdate();
+			if (updateCount == 0) {
+				return false;
+			}
+			conn.commit();
+			pst.close();
+			conn.close();
+
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+
+				}
+
+			}
+
+			throw new RuntimeException("Error inserting film " + actor.getFirstName() + " " + actor.getLastName());
+		}
+
+		return true;
+
+	}
 
 }
-
-
-

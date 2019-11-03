@@ -24,7 +24,12 @@ public interface MVCFilmSiteDAO {
 
 	public List<Actor> findActorsByFilmId(int filmId);
 
-
+	public Actor createActor(Actor actor);
+	
 	public boolean updateFilm(Film film, int filmid);
+	
+	public boolean deleteActor(Actor actor);
+	
+	public boolean updateActor(Actor actor, int actorid);
 
 }
