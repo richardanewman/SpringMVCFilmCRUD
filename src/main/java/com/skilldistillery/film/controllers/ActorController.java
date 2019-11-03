@@ -17,11 +17,12 @@ import com.skilldistillery.film.data.MVCFilmSiteDAO;
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
-@Controller
-public class FilmController {
+public class ActorController {
 
 	private int filmIdTemp = 0;
+	private int actorIdTemp = 0;
 	private Film filmForDisplay = null;
+	private Actor actorForDisplay = null;
 
 	@Autowired
 	private MVCFilmSiteDAO filmDAO;
@@ -71,6 +72,47 @@ public class FilmController {
 		return mv;
 	}
 
+	@RequestMapping(path = "findActorById.do", method = RequestMethod.GET, params = "id")
+	public ModelAndView findActorByID(@RequestParam("id") String actorId) {
+		ModelAndView mv = new ModelAndView();
+
+		Pattern p = Pattern.compile("^[0-9]");
+		Matcher m = p.matcher(actorId);
+
+		if (m.find()) {
+
+			int id = Integer.parseInt(actorId);
+
+			if (id != 0) {
+				Actor actor = filmDAO.findActorById(id);
+
+				if (actor != null) {
+					actorForDisplay = actor;
+					mv.addObject("actor", actor);
+					mv.setViewName("WEB-INF/result.jsp");
+				}
+
+				else {
+					mv.addObject("actor", "Invalid Actor, try Again!");
+					mv.setViewName("WEB-INF/actorByID.jsp");
+				}
+			} 
+			
+			else {
+				mv.addObject("actor", "Invalid Actor, try Again!");
+				mv.setViewName("WEB-INF/actorByID.jsp");
+			}
+
+		}
+
+		else {
+			mv.addObject("actor", "Invalid Actor, try Again!");
+			mv.setViewName("WEB-INF/actorByID.jsp");
+		}
+
+		return mv;
+	}
+
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
 	public ModelAndView createFilm(@Valid Film film) {
 		ModelAndView mv = new ModelAndView();
@@ -89,7 +131,32 @@ public class FilmController {
 		
 	}
 	
+
+	@RequestMapping(path = "createActor.do", method = RequestMethod.POST)
+	public ModelAndView createActor(@Valid Actor actor) {
+		ModelAndView mv = new ModelAndView();
+		Actor newActor = filmDAO.createActor(actor);
+		mv.addObject("newActor", newActor);
+		mv.setViewName("WEB-INF/newActor.jsp");
+		return mv;
+
+	}
 	
+	@RequestMapping(path = "addActorForm.do", method = RequestMethod.GET)
+	private ModelAndView getForm(@Valid Actor actor) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/WEB-INF/addActorForm.jsp");
+		return mv;
+		
+	}
+
+	@RequestMapping(path = "addActor.do", method = RequestMethod.GET)
+	private ModelAndView getActorForm(@Valid Actor actor) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/WEB-INF/addActor.jsp");
+		return mv;
+
+	}
 
 	@RequestMapping(path = "searchFilm.do", method = RequestMethod.GET, params = "keyword")
 	public ModelAndView searchFilm(@RequestParam("keyword") String keyword) {
@@ -149,6 +216,46 @@ public class FilmController {
 		return mv;
 	}
 
+	@RequestMapping(path = "deleteActor.do", method = RequestMethod.POST, params = "id")
+	private ModelAndView deleteActor(@RequestParam("id") String actorId) {
+		ModelAndView mv = new ModelAndView();
+
+		Pattern p = Pattern.compile("^[0-9]");
+		Matcher m = p.matcher(actorId);
+
+		if (m.find()) {
+
+			int id = Integer.parseInt(actorId);
+			Actor actor = filmDAO.findActorById(id);
+
+			if (actor != null) {
+
+				if (filmDAO.deleteActor(actor)) {
+					mv.addObject("result", "Actor was deleted!");
+					mv.setViewName("/WEB-INF/status.jsp");
+				}
+
+				else {
+					mv.addObject("result", "Actor was not deleted!");
+					mv.setViewName("/WEB-INF/result.jsp");
+				}
+			}
+			
+			else {
+				mv.addObject("result", "Actor was not deleted!");
+				mv.setViewName("/WEB-INF/result.jsp");
+			}
+
+		}
+
+		else {
+			mv.addObject("actor", actorForDisplay);
+			mv.addObject("result", "Invalid Actor!");
+			mv.setViewName("/WEB-INF/result.jsp");
+		}
+
+		return mv;
+	}
 	
 	
 
@@ -201,6 +308,52 @@ public class FilmController {
 		mv.setViewName("index.html");
 		return mv;
 
+	}
+	
+	
+	@RequestMapping(path = "editActorForm.do", method = RequestMethod.GET, params = "id")
+	private ModelAndView getEditActorForm(@RequestParam("id") String actorId) {
+		ModelAndView mv = new ModelAndView();
+		Pattern p = Pattern.compile("^[0-9]");
+		Matcher m = p.matcher(actorId);
+		
+		if (m.find()) {
+			
+			int id = Integer.parseInt(actorId);
+			
+			actorIdTemp = id;
+			Actor actor = filmDAO.findActorById(id);
+			mv.addObject("actor", actor);
+			mv.setViewName("/WEB-INF/editActor.jsp");
+		}
+		
+		else {
+			mv.addObject("actor", actorForDisplay);
+			mv.addObject("result", "Invalid Actor!");
+			mv.setViewName("/WEB-INF/result.jsp");
+		}
+		
+		return mv;
+		
+	}
+	
+	@RequestMapping(path = "editActor.do", method = RequestMethod.POST)
+	private ModelAndView updateActor(@Valid Actor actor) {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		if (filmDAO.updateActor(actor, actorIdTemp)) {
+			mv.addObject("result", "Actor was updated!");
+			mv.setViewName("/WEB-INF/status.jsp");
+			return mv;
+		}
+		
+		else {
+			mv.addObject("result", "Actor was not updated!");
+			mv.setViewName("/WEB-INF/status.jsp");
+			return mv;
+		}
+		
 	}
 	
 	
