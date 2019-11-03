@@ -4,14 +4,12 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.data.MVCFilmSiteDAO;
 import com.skilldistillery.film.entities.Film;
@@ -70,10 +68,23 @@ public class FilmController {
 		
 	}
 	
-	@RequestMapping(path="editFilm.do", method = RequestMethod.POST, params="id")
-	private ModelAndView updateFilm(@RequestParam("id") int filmId) {
+	@RequestMapping(path="editFilmForm.do", method = RequestMethod.GET, params="id")
+	private ModelAndView getEditForm(@RequestParam("id") int filmId, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 		Film film= filmDAO.findFilmById(filmId);
+		redir.addFlashAttribute("filmid", filmId);
+		mv.addObject("film", film);
+		mv.setViewName("/WEB-INF/editFilm.jsp");
+		return mv;
+		
+	}
+	
+	
+	
+	@RequestMapping(path="editFilm.do", method = RequestMethod.POST )
+	private ModelAndView updateFilm(@Valid Film film, @RequestAttribute("filmid") int filmId) {
+		ModelAndView mv = new ModelAndView(); 
+		film.setId(filmId);
 		if(filmDAO.updateFilm(film)) {
 			mv.addObject("result", "Film was updated!");
 			mv.setViewName("/WEB-INF/status.jsp");

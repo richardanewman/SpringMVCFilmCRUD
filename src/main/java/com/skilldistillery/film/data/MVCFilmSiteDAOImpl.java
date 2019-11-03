@@ -293,7 +293,7 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
-			String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id=?, rental_duration=?, length=?, replacement_cost=?, rating=?, special_features=? WHERE id=?;";
+			String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id=?, rental_duration=?, length=?, replacement_cost=?, rating=?, special_features=? WHERE id=?";
 			conn.setAutoCommit(false);
 			PreparedStatement pst = conn.prepareStatement(sql);
 			
@@ -309,8 +309,8 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 			pst.setInt(10, film.getId());
 			
 			int updateCount = pst.executeUpdate();
-			if (updateCount == 1) {
-				System.out.println("You successfully Udated " + updateCount + " record.");
+			if (updateCount == 0) {
+				return false;
 			}
 			conn.commit();
 			pst.close();
@@ -334,6 +334,8 @@ public class MVCFilmSiteDAOImpl implements MVCFilmSiteDAO {
 		
 		
 	}
+
+	
 
 }
 
