@@ -140,7 +140,7 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "editFilmForm.do", method = RequestMethod.GET, params = "id")
-	private ModelAndView getEditForm(@RequestParam("id") int filmId, RedirectAttributes redir) {
+	private ModelAndView getEditForm(@RequestParam("id") int filmId) {
 		ModelAndView mv = new ModelAndView();
 		this.filmId = filmId;
 		Film film = filmDAO.findFilmById(filmId);
