@@ -56,10 +56,10 @@ public class FilmController {
 				}
 			}
 			
-			else {
-				mv.addObject("film", "Invalid Film, try Again!");
-				mv.setViewName("WEB-INF/filmByID.jsp");
-			}
+//			else {
+//				mv.addObject("film", "Invalid Film, try Again!");
+//				mv.setViewName("WEB-INF/filmByID.jsp");
+//			}
 
 		}
 
@@ -69,6 +69,14 @@ public class FilmController {
 		}
 
 		return mv;
+	}
+	
+	@RequestMapping(path = "addFilmForm.do", method = RequestMethod.GET)
+	private ModelAndView getForm(@Valid Film film) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/WEB-INF/addFilm.jsp");
+		return mv;
+		
 	}
 
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
@@ -81,13 +89,6 @@ public class FilmController {
 
 	}
 
-	@RequestMapping(path = "addFilmForm.do", method = RequestMethod.GET)
-	private ModelAndView getForm(@Valid Film film) {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/WEB-INF/addFilm.jsp");
-		return mv;
-		
-	}
 	
 	
 
@@ -134,10 +135,12 @@ public class FilmController {
 					mv.addObject("result", "Movie was not deleted!");
 					mv.setViewName("/WEB-INF/result.jsp");
 				}
-			} else {
-				mv.addObject("result", "Movie was not deleted!");
-				mv.setViewName("/WEB-INF/result.jsp");
-			}
+			} 
+			
+//			else {
+//				mv.addObject("result", "Movie was not deleted!");
+//				mv.setViewName("/WEB-INF/result.jsp");
+//			}
 		}
 
 		else {
