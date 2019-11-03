@@ -14,5 +14,4 @@
 		base-package="com.skilldistillery.film.controllers,com.skilldistillery.film.data,com.skilldistillery.film.entities" />
 	<mvc:annotation-driven/>
 
-
 </beans>

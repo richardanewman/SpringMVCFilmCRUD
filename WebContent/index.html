@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Almost IMDB</title>
+  <link rel="stylesheet" href="resources/css/styles.css">
+  <link rel="icon" href="images/favicon-3.ico">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Great+Vibes" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f33aa8216c.js"></script>
+  <nav class="navbar">
+          <span class="navbar-toggle" id="js-navbar-toggle">
+              <i class="fas fa-bars"></i>
+          </span>
+          <a href="index.html" class="logo"></a>
+          <ul class="main-nav" id="js-menu">
+              <li>
+                  <a href="index.html" class="nav-links">Home</a>
+              </li>
+              <li>
+                  <a href="filmByID.index" class="nav-links">Film By ID</a>
+              </li>
+              <li>
+                  <a href="addFilmForm.do" class="nav-links">Add Film</a>
+              </li>
+              <li>
+                  <a href="searchFilm.html" class="nav-links">Search Film</a>
+              </li>
+          </ul>
+      </nav>
+
+<meta charset="UTF-8">
 </head>
 <body>
+
+<br>
+<br>
+<h1>Welcome to Almost IMBD! We are sorta like IMDB but not really.</h1>
 
 	<form action="filmByID.html" method="GET">
 		<input type="submit" value="Find Film By ID" />
@@ -17,5 +48,6 @@
 	<form action="searchFilm.html" method="GET">
 		<input type="submit" value="Search For Film by Keyword" />
 	</form>
+
 </body>
 </html>
