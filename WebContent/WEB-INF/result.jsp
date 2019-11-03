@@ -17,18 +17,25 @@
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
+
+	<c:choose>
+		<c:when test="${! empty result}">
+		<br>
+		<br>
+      	${result}
+    	</c:when>
+	</c:choose>
+
 	<br>
 	<br>
 	<form action="deleteFilm.do" method="POST">
-	Please enter film ID to confirm deletion:
-	<input type="text" name="id">
-	<input type="submit" value="Delete Film" />
+		Please enter film ID to confirm deletion: <input type="text" name="id">
+		<input type="submit" value="Delete Film" />
 	</form>
 	<br>
 	<form action="editFilmForm.do" method="GET">
-	Please enter film ID to edit fields:
-	<input type="text" name="id">
-	<input type="submit" value="Edit Film" />
+		Please enter film ID to edit fields: <input type="text" name="id">
+		<input type="submit" value="Edit Film" />
 	</form>
 
 </body>
