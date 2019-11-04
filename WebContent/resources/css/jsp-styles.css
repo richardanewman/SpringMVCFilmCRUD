@@ -1,8 +1,7 @@
 @charset "UTF-8";
 
 body {
-	background-image: url("jackryan.jpg");
-    background-repeat: no-repeat;
+	background-color: #e6b91e;
     background-size: 100%;
     height: 100%;
     background-position: center top;

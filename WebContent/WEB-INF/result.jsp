@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="resources/css/styles.css" rel="stylesheet" type="text/css">
+<link href="resources/css/jsp-styles.css" rel="stylesheet" type="text/css">
 <title>Search Results</title>
 </head>
 <body>

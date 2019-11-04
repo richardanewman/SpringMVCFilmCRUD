@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="resources/css/styles.css" rel="stylesheet" type="text/css">
+<link href="resources/css/jsp-styles.css" rel="stylesheet" type="text/css">
 <title>Film Status</title>
 </head>
 <body>
