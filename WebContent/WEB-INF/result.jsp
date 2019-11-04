@@ -22,8 +22,6 @@
       <br>
       <strong>Rental Duration:</strong> ${film.rentalDuration}
       <br>
-     <%--  <strong>Rental Rate:</strong> ${film.rentalRate}
-      <br> --%>
       <strong>Film Length:</strong> ${film.length}
       <br>
       <strong>Replacement Cost:</strong> ${film.replacementCost}
@@ -32,7 +30,11 @@
       <br>
       <strong>Special Features:</strong> ${film.specialFeatures}
       <br>
-      <strong>Category:</strong> ${film.category}
+      <c:choose>
+				<c:when test="${! empty film.category}">
+					<strong>Category:</strong> ${film.category}
+     			 </c:when>
+			</c:choose>
       <br>
     </c:when>
 		<c:otherwise>
