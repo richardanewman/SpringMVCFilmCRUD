@@ -24,16 +24,17 @@ The primary topics applied from Week 8 at Skill Distillery were using Dynamic We
 
 ### Lessons Learned
 
-    #### Cesar Moreno's Lessons Learned
+    ### Cesar Moreno's Lessons Learned
 
-    Communication is key to prevent merger, this was a big lesson learn for us even though we didn’t have many issues but the few we had communication helped with the solution.
+    Communication is key to prevent merger, this was a big lesson learn for us even though we didn’t have many issues but 
+    the few we had communication helped with the solution.
 
     For inputs we implemented required=“required” for the input so we could catch empty fields right before it hit the backend.
     At the beginning we rushed into big ideas, such as adding users and logins, but soon realized that we needed MVP and refocused on the initial user story.
 
     We learned that small changes can make big impacts, specially from the backend, implementations of new logic in controllers affected the the program as a whole.
 
-    #### Richard Newman's Lessons Learned
+    ### Richard Newman's Lessons Learned
 
     Invaluable project. Learned lessons from each step of the task assignments and from pair programming with version control. Initially, we felt unprepared for this project. We felt that the material covered during the week was too complex for such a short period of time but the madness of the method proved to be invaluable. Struggling with connecting the all the moving parts, I.e. ORM (object relational mapping), the DAO (database accessor objects), autowired entities, dependency injection and inversion of control, taught me more in one weekend than I could ever learn by simply listening to lectures or reading in a book. It was the hands on keyboard and talking through the process and logic with my partner that helped tremendously.  
 
