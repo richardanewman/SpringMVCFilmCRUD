@@ -75,6 +75,7 @@ public class FilmController {
 	@RequestMapping(path = "addFilmForm.do", method = RequestMethod.GET)
 	private ModelAndView getForm(@Valid Film film) {
 		ModelAndView mv = new ModelAndView();
+		
 		mv.setViewName("/WEB-INF/addFilm.jsp");
 		return mv;
 		
@@ -83,9 +84,17 @@ public class FilmController {
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
 	public ModelAndView createFilm(@Valid Film film, Errors error) {
 		ModelAndView mv = new ModelAndView();
-		Film newFilm = filmDAO.createFilm(film);
-		mv.addObject("newfilm", newFilm);
-		mv.setViewName("WEB-INF/newFilm.jsp");
+		
+		if(error.getErrorCount()>0) {
+			mv.setViewName("/WEB-INF/addFilm.jsp");
+		}
+		
+		else {
+			Film newFilm = filmDAO.createFilm(film);
+			mv.addObject("newfilm", newFilm);
+			mv.setViewName("WEB-INF/newFilm.jsp");
+			
+		}
 		return mv;
 
 	}
