@@ -28,20 +28,16 @@
 <title>Find Film by ID</title>
 </head>
 <body>
-	<h1>Welcome to Almost IMDB JSP</h1>
-	<h2>Find A Film by ID</h2>
-			${film}
-	<p>Please use the fields below to find a film in our database by ID
-		number.</p>
-		
-	<form action="findFilmById.do" method="GET">
-		ID: 
-		
-		<input type="text" value="0" name="id" />
-		 <input type="submit"  value="Get Film by ID" />
+<div class="filmId">
+<h1>Find A Film by ID</h1>
+${film }
+<p>Please use the fields below to find a film in our database by ID number.</p>
 
-
-	</form>
-
+<form action="findFilmById.do" method="GET">
+	ID:
+	<input class="input" type="number"  min="0" required="required" name="id" placeholder="Enter ID"/> 
+    <input class="submit" type="submit" value="Get Film by ID" />
+</form>
+</div>
 </body>
 </html>
