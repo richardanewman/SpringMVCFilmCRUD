@@ -76,7 +76,7 @@ https://github.com/CMoreno04/SpringMVCFilmCRUD.git
 
 ## Context
 
-Below you will find a copy of the assignment's tasks. I am providing this context for anyone evaluating my code. This project builds on a lab written in class. We were guided through the first JDBC connection, along with the matching entity for that connection. The remainder of the lab work was performed independently. For better or worse, the code is my own. The only resources referenced were from the prior week's course material and my class notes. I am not a fan of copy and paste code because it does not aid in the learning process. I am attending this bootcamp so that I can thoroughly understand how to properly develop software using Java.
+Below you will find a copy of the assignment's tasks. We are providing this context for anyone evaluating our code. This project builds on labs written in class. We were guided through the first JDBC connection, along with the matching entity for that connection. The remainder of the lab work was performed independently. For better or worse, the code is our own. The only resources referenced were from the prior week's course material and our class notes. We are not a fan of copy and paste code because it does not aid in our learning process. We are attending this bootcamp so that we can thoroughly understand how to properly develop software using Java.
 
 ### The Following Task Overview and User Stories Were Provided by Skill Distillery
 
