@@ -37,7 +37,7 @@
 		<form:errors path="description" />
 		<br />
 		<form:label path="releaseYear">Release Year:</form:label>
-		<form:input path="releaseYear" required="required"/>
+		<form:input path="releaseYear" min="0" max="2029" type="number" required="required"/>
 		<form:errors path="releaseYear" />
 		<br />
 		<form:select path="languageId">Language: 
@@ -49,15 +49,15 @@
 			<form:option value="6">German</form:option>
 		</form:select>
 		<form:label path="rentalDuration">Rental Duration:</form:label>
-		<form:input path="rentalDuration" required="required"/>
+		<form:input path="rentalDuration" min="0" type="number" required="required"/>
 		<form:errors path="rentalDuration" />
 		<br />
 		<form:label path="length">Length:</form:label>
-		<form:input path="length" required="required"/>
+		<form:input path="length" min="0" type="number"required="required"/>
 		<form:errors path="length" />
 		<br />
 		<form:label path="replacementCost">Replacement Cost:</form:label>
-		<form:input path="replacementCost" required="required"/>
+		<form:input path="replacementCost" type="number" min="0" step="0.01" required="required"/>
 		<form:errors path="replacementCost" />
 		<br />
 		<form:label path="rating">Rating:</form:label>
