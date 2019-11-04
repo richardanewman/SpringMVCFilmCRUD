@@ -166,8 +166,9 @@ public class FilmController {
 	
 
 	@RequestMapping(path = "editFilmForm.do", method = RequestMethod.GET, params = "id")
-	private ModelAndView getEditForm(@RequestParam("id") String filmId) {
+	private ModelAndView getEditForm( @RequestParam("id") String filmId ) {
 		ModelAndView mv = new ModelAndView();
+		
 		Pattern p = Pattern.compile("^[0-9]");
 		Matcher m = p.matcher(filmId);
 
@@ -177,12 +178,23 @@ public class FilmController {
 
 			filmIdTemp = id;
 			Film film = filmDAO.findFilmById(id);
-			mv.addObject("film", film);
-			mv.setViewName("/WEB-INF/editFilm.jsp");
+			
+			if (film != null) {
+			
+				
+				mv.addObject("film", film);
+				mv.setViewName("/WEB-INF/editFilm.jsp");
+			}else {
+				mv.addObject("film", filmForDisplay);
+				mv.addObject("result", "Invalid Film!");
+				mv.setViewName("/WEB-INF/result.jsp");
+			}
+			
+			
 		}
 
 		else {
-			mv.addObject("film", filmForDisplay.displayFilm());
+			mv.addObject("film", filmForDisplay);
 			mv.addObject("result", "Invalid Film!");
 			mv.setViewName("/WEB-INF/result.jsp");
 		}

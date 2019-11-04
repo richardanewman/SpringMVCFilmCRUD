@@ -23,7 +23,7 @@
 		<form:errors path="description" />
 		<br />
 		<form:label path="releaseYear">Release Year:</form:label>
-		<form:input path="releaseYear" default="${film.releaseYear }" placeholder="${film.releaseYear }"/>
+		<form:input path="releaseYear" type="number" default="${film.releaseYear }" placeholder="${film.releaseYear }"/>
 		<form:errors path="releaseYear" />
 		<br />
 		<form:label path="languageId">Language Currently Set To ${film.languageId }:</form:label>
