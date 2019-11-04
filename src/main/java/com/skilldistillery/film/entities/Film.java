@@ -12,10 +12,12 @@ public class Film {
 	private int id;
 	private String title;
 	private String description;
-	@Min(1990) @Max(2010)
+	@Min(1990) @Max(2029)
 	private Integer releaseYear;
 	private int languageId;
+	
 	private int rentalDuration;
+	@Min(10) @Max(300)
 	private int length;
 	private double replacementCost;
 	private String rating;
