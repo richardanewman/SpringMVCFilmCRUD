@@ -28,6 +28,8 @@
 <title>New Film Added</title>
 </head>
 <body>
+<div class="filmForm">
+<h1>Film Added To Our Database!</h1>
 	<c:choose>
 		<c:when test="${! empty newfilm}">
       ${newfilm}
@@ -40,15 +42,16 @@
 	<br>
 	<form action="deleteFilm.do" method="POST">
 	Please enter film ID to confirm deletion:
-	<input type="number" min="0" required="required" name="id">
-	<input type="submit" value="Delete Film" />
+	<input class="input" type="number" min="0" required="required" name="id">
+	<input class="submit" type="submit" value="Delete Film" />
 	</form>
 	<br>
 	<form action="editFilmForm.do" method="GET">
 	Please enter film ID to edit fields:
-	<input type="text" min="0" required="required" name="id">
-	<input type="submit" value="Edit Film" />
+	<input class="input" type="text" min="0" required="required" name="id">
+	<input class="submit" type="submit" value="Edit Film" />
 	</form>
 	
+</div>
 </body>
 </html>

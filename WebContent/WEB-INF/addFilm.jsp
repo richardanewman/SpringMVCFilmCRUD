@@ -31,20 +31,16 @@
 <h1>Add A New Film</h1>
 <form:form action="createFilm.do" method="POST" modelAttribute="film">
 		<form:label path="title">Title:</form:label><br>
-		<form:input class="input" path="title" required="required"/>
+		<form:input class="input" path="title" required="required" placeholder="Enter Title"/>
 		<form:errors path="title" />
 		<br />
 		<form:label path="description" >Description:</form:label><br>
-		<form:input class="input" path="description" required="required"/>
+		<form:input class="input" path="description" required="required" placeholder="Enter Description"/>
 		<form:errors path="description" />
 		<br />
-<<<<<<< HEAD
-		<form:label path="releaseYear">Release Year:</form:label>
-		<form:input path="releaseYear" min="0" max="2029" type="number" required="required"/>
-=======
+
 		<form:label path="releaseYear">Release Year:</form:label><br>
-		<form:input class="input" path="releaseYear" required="required"/>
->>>>>>> c329cf4ba10e7e31f5102bc50f03c8a12be111fe
+		<form:input class="input" path="releaseYear" min="0" max="2029" type="number" required="required" placeholder="Year" />
 		<form:errors path="releaseYear" />
 		<br />
 		<form:label path="languageId">Language: </form:label><br>
@@ -56,36 +52,23 @@
 			<form:option value="5">French</form:option>
 			<form:option value="6">German</form:option>
 		</form:select>
-<<<<<<< HEAD
-		<form:label path="rentalDuration">Rental Duration:</form:label>
-		<form:input path="rentalDuration" min="0" type="number" required="required"/>
-		<form:errors path="rentalDuration" />
-		<br />
-		<form:label path="length">Length:</form:label>
-		<form:input path="length" min="0" type="number"required="required"/>
-		<form:errors path="length" />
-		<br />
-		<form:label path="replacementCost">Replacement Cost:</form:label>
-		<form:input path="replacementCost" type="number" min="0" step="0.01" required="required"/>
-=======
 		<br>
 		<form:label path="rentalDuration">Rental Duration:</form:label><br>
-		<form:input class="input" path="rentalDuration" required="required"/>
+		<form:input class="input" path="rentalDuration" min="0" type="number" required="required" placeholder="Enter Days"/>
 		<form:errors path="rentalDuration" />
-		<br />
+		<br>
 		<form:label path="length">Length:</form:label><br>
-		<form:input class="input" path="length" required="required"/>
+		<form:input class="input" path="length" min="0" type="number" required="required"/>
 		<form:errors path="length" />
-		<br />
+		<br>
 		<form:label path="replacementCost">Replacement Cost:</form:label><br>
-		<form:input class="input" path="replacementCost" required="required"/>
->>>>>>> c329cf4ba10e7e31f5102bc50f03c8a12be111fe
-		<form:errors path="replacementCost" />
-		<br />
+		<form:input class="input" path="replacementCost" type="number" min="0" step="0.01" required="required"/>
+		<br>
+	
 		<form:label path="rating">Rating:</form:label><br>
-		<form:input class="input" path="rating" required="required"/>
+		<form:input class="input" path="rating" required="required" placeholder="Enter Rating"/>
 		<form:errors path="rating" />
-		<br />
+		<br>
 		<form:label path="specialFeatures">Special Features: </form:label><br>
 		<form:select path="specialFeatures"> 
 			<form:option value="Trailers">Trailers</form:option>
