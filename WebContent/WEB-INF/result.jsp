@@ -6,13 +6,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="resources/css/styles.css" rel="stylesheet" type="text/css">
+<link href="resources/css/jsp-styles.css" rel="stylesheet" type="text/css">
 <title>Search Results</title>
 </head>
 <body>
 	<c:choose>
 		<c:when test="${! empty film}">
-      ${film}
+      <strong>Title:</strong> ${film.title}
+      <br>
+      <strong>Year Released:</strong>${film.releaseYear}
+      <br>
+      <strong>Film Language:</strong> ${film.language}
+      <br>
+      <strong>Film Description:</strong> ${film.description}
+      <br>
+      <strong>Rental Duration:</strong> ${film.rentalDuration}
+      <br>
+     <%--  <strong>Rental Rate:</strong> ${film.rentalRate}
+      <br> --%>
+      <strong>Film Length:</strong> ${film.length}
+      <br>
+      <strong>Replacement Cost:</strong> ${film.replacementCost}
+      <br>
+      <strong>Film Rating:</strong> ${film.rating}
+      <br>
+      <strong>Special Features:</strong> ${film.specialFeatures}
+      <br>
+      <strong>Category:</strong> ${film.category}
+      <br>
     </c:when>
 		<c:otherwise>
 			<p>No film found</p>
@@ -22,20 +43,19 @@
 	<c:choose>
 		<c:when test="${! empty result}">
 		<br>
-		<br>
       	${result}
     	</c:when>
 	</c:choose>
 
 	<br>
-	<br>
+
 	<form action="deleteFilm.do" method="POST">
-		Please enter film ID to confirm deletion: <input type="text" name="id">
+		<strong>Please enter film ID to confirm deletion:</strong> <input type="text" name="id">
 		<input type="submit" value="Delete Film" />
 	</form>
 	<br>
 	<form action="editFilmForm.do" method="GET">
-		Please enter film ID to edit fields: <input type="text" name="id">
+		<strong>Please enter film ID to edit fields:</strong><input type="text" name="id">
 		<input type="submit" value="Edit Film" />
 	</form>
 

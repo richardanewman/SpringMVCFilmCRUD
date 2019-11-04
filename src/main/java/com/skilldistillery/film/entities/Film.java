@@ -82,6 +82,10 @@ public class Film {
 		return replacementCost;
 	}
 	
+	public String getLanguage() {
+		return new MVCFilmSiteDAOImpl().getLanguage(this.languageId).getLanguage();
+
+	}
 	public void setReplacementCost(double replacementCost) {
 		this.replacementCost = replacementCost;
 	}
@@ -111,8 +115,8 @@ public class Film {
 		this.actors = actors;
 	}
 
-	public FilmCategory getCategory() {
-		return category;
+	public String getCategory() {
+		return category.toString();
 	}
 
 	public void setCategory(FilmCategory category) {

@@ -46,7 +46,7 @@ public class FilmController {
 
 				if (film != null) {
 					filmForDisplay = film;
-					mv.addObject("film", filmDAO.findFilmById(id).displayFilm());
+					mv.addObject("film", filmDAO.findFilmById(id));
 					mv.setViewName("WEB-INF/result.jsp");
 				}
 
