@@ -119,8 +119,8 @@ public class Film {
 		this.actors = actors;
 	}
 
-	public String getCategory() {
-		return category.toString();
+	public FilmCategory getCategory() {
+		return this.category;
 	}
 
 	public void setCategory(FilmCategory category) {

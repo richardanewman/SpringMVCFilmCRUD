@@ -9,11 +9,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="resources/css/jsp-styles.css" rel="stylesheet" type="text/css">
+<link href="resources/css/jsp-styles.css" rel="stylesheet"
+	type="text/css">
 
 <nav class="navbar">
-<a href="index.html"><img src="resources/css/logo.png" width="85" height="58" class="d-inline-block align-top" alt=""></a>
-	<span class="navbar-toggle" id="js-navbar-toggle"> <i
+	<a href="index.html"><img src="resources/css/logo.png" width="85"
+		height="58" class="d-inline-block align-top" alt=""></a> <span
+		class="navbar-toggle" id="js-navbar-toggle"> <i
 		class="fas fa-bars"></i>
 	</span> <a href="index.html" class="logo"></a>
 	<ul class="main-nav" id="js-menu">
@@ -30,54 +32,54 @@
 <body>
 	<c:choose>
 		<c:when test="${! empty film}">
-      <strong>Title:</strong> ${film.title}
+			<strong>Title:</strong> ${film.title}
       <br>
-      <strong>Year Released:</strong>${film.releaseYear}
+			<strong>Year Released:</strong>${film.releaseYear}
       <br>
-      <strong>Film Language:</strong> ${film.language}
+			<strong>Film Language:</strong> ${film.language}
       <br>
-      <strong>Film Description:</strong> ${film.description}
+			<strong>Film Description:</strong> ${film.description}
       <br>
-      <strong>Rental Duration:</strong> ${film.rentalDuration}
+			<strong>Rental Duration:</strong> ${film.rentalDuration}
       <br>
-      <strong>Film Length:</strong> ${film.length}
+			<strong>Film Length:</strong> ${film.length}
       <br>
-      <strong>Replacement Cost:</strong> ${film.replacementCost}
+			<strong>Replacement Cost:</strong> ${film.replacementCost}
       <br>
-      <strong>Film Rating:</strong> ${film.rating}
+			<strong>Film Rating:</strong> ${film.rating}
       <br>
-      <strong>Special Features:</strong> ${film.specialFeatures}
+			<strong>Special Features:</strong> ${film.specialFeatures}
       <br>
-      <c:choose>
-				<c:when test="${! empty film.category}">
-					<strong>Category:</strong> ${film.category}
-     			 </c:when>
-			</c:choose>
-      <br>
-    </c:when>
+    <c:if test="${not empty film.category }">
+			<strong>Film Category:</strong> ${film.category}
+    </c:if>
+      
+		</c:when>
 		<c:otherwise>
-			<p>${noFilm}</p>
+		
+			${noFilm}
 		</c:otherwise>
 	</c:choose>
 
+
 	<c:choose>
 		<c:when test="${! empty result}">
-		<hr>
-      	<strong>${result}</strong>
-    	</c:when>
+			<hr>
+			<strong>${result}</strong>
+		</c:when>
 	</c:choose>
 
 	<hr>
 
-	<span style="float:left">
+	<span style="float: left">
 		<form action="deleteFilm.do" method="POST" align="left">
-			<strong>Please enter film ID to confirm
-				deletion:</strong> <input type="number" name="id"> <input
-				type="submit" value="Delete Film" />
+			<strong>Please enter film ID to confirm deletion:</strong> <input
+				type="number" name="id"> <input type="submit"
+				value="Delete Film" />
 		</form>
 	</span>
-	
-	<span style="float:right">
+
+	<span style="float: right">
 		<form action="editFilmForm.do" method="GET" align="right">
 			<strong>Please enter film ID to edit fields:</strong><input
 				type="number" name="id"> <input type="submit"

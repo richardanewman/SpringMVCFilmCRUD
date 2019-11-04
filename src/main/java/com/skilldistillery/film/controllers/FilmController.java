@@ -45,26 +45,28 @@ public class FilmController {
 				Film film = filmDAO.findFilmById(id);
 
 				if (film != null) {
+					
 					filmForDisplay = film;
-					mv.addObject("film", filmDAO.findFilmById(id));
+					
+					mv.addObject("film", film);
 					mv.setViewName("WEB-INF/result.jsp");
 				}
 
 				else {
-					mv.addObject("film", "Invalid Film, try Again!");
+					mv.addObject("noFilm", "Invalid Film, try Again!");
 					mv.setViewName("WEB-INF/filmByID.jsp");
 				}
 			}
 			
 			else {
-				mv.addObject("film", "Invalid Film, try Again!");
+				mv.addObject("noFilm", "Invalid Film, try Again!");
 				mv.setViewName("WEB-INF/filmByID.jsp");
 			}
 
 		}
 
 		else {
-			mv.addObject("film", "Invalid Film, try Again!");
+			mv.addObject("noFilm", "Invalid Film, try Again!");
 			mv.setViewName("WEB-INF/filmByID.jsp");
 		}
 
