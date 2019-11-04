@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -80,7 +81,7 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
-	public ModelAndView createFilm(@Valid Film film) {
+	public ModelAndView createFilm(@Valid Film film, Errors error) {
 		ModelAndView mv = new ModelAndView();
 		Film newFilm = filmDAO.createFilm(film);
 		mv.addObject("newfilm", newFilm);
