@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="resources/css/styles.css" rel="stylesheet" type="text/css">
+<link href="resources/css/jsp-styles.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Find Film by ID</title>
 </head>
