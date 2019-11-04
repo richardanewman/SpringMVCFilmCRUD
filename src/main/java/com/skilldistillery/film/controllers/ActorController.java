@@ -46,7 +46,7 @@ public class ActorController {
 				if (actor != null) {
 					actorForDisplay = actor;
 					mv.addObject("actor", actor);
-					mv.setViewName("WEB-INF/result.jsp");
+					mv.setViewName("WEB-INF/actorResult.jsp");
 				}
 
 				else {

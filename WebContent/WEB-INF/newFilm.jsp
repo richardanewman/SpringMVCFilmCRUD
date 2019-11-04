@@ -32,7 +32,26 @@
 <h1>Film Added To Our Database!</h1>
 	<c:choose>
 		<c:when test="${! empty newfilm}">
-      ${newfilm}
+		
+     		<strong>Film ID:</strong> ${newfilm.id}
+      <br>
+     		<strong>Title:</strong> ${newfilm.title}
+      <br>
+			<strong>Year Released:</strong>${newfilm.releaseYear}
+      <br>
+			<strong>Film Language:</strong> ${newfilm.language}
+      <br>
+			<strong>Film Description:</strong> ${newfilm.description}
+      <br>
+			<strong>Rental Duration:</strong> ${newfilm.rentalDuration}
+      <br>
+			<strong>Film Length:</strong> ${newfilm.length}
+      <br>
+			<strong>Replacement Cost:</strong> ${newfilm.replacementCost}
+      <br>
+			<strong>Film Rating:</strong> ${newfilm.rating}
+      <br>
+			<strong>Special Features:</strong> ${newfilm.specialFeatures}
     </c:when>
 		<c:otherwise>
 			<p>Error. No film created.</p>
@@ -41,13 +60,13 @@
 	<br>
 	<br>
 	<form action="deleteFilm.do" method="POST">
-	Please enter film ID to confirm deletion:
+	Please enter film ID to confirm deletion:<br>
 	<input class="input" type="number" min="0" required="required" name="id">
 	<input class="submit" type="submit" value="Delete Film" />
 	</form>
 	<br>
 	<form action="editFilmForm.do" method="GET">
-	Please enter film ID to edit fields:
+	Please enter film ID to edit fields:<br>
 	<input class="input" type="text" min="0" required="required" name="id">
 	<input class="submit" type="submit" value="Edit Film" />
 	</form>

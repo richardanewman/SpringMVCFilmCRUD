@@ -28,9 +28,15 @@
 <title>Actor Search Results</title>
 </head>
 <body>
+<div class="filmForm">
+<h1>Actor Search Results</h1>
 	<c:choose>
 		<c:when test="${! empty actor}">
-      ${actor}
+		
+      	Actor ID: <strong>${actor.id}</strong><br>
+      	Actor First Name:  <strong>${actor.firstName}</strong><br>
+      	Actor LastName:  <strong>${actor.lastName}</strong><br>
+      
     </c:when>
 		<c:otherwise>
 			<p>No Actor found</p>
@@ -48,15 +54,17 @@
 	</c:choose>
 	<br>
 	<br>
-	<form action="deleteFilm.do" method="POST">
-		Please enter actor ID to confirm deletion: <input type="text" name="id">
-		<input class="input" type="submit" value="Delete Actor" />
+	<%-- <form action="deleteFilm.do" method="POST">
+		Please enter actor ID to confirm deletion: <br>
+		<input class="input" type="text" name="id">
+		<input class="submit" type="submit" value="Delete Actor" />
 	</form>
 	<br>
 	<form action="editFilmForm.do" method="GET">
-		Please enter actor ID to edit fields: <input type="text" name="id">
+		Please enter actor ID to edit fields: <br>
+		<input class="input" type="text" name="id">
 		<input class="submit" type="submit" value="Edit Actor" />
-	</form>
-
+	</form> --%>
+</div>
 </body>
 </html>

@@ -58,11 +58,11 @@
 		<form:errors path="rentalDuration" />
 		<br>
 		<form:label path="length">Length:</form:label><br>
-		<form:input class="input" path="length" min="0" type="number" required="required"/>
+		<form:input class="input" path="length" min="0" type="number" required="required" placeholder="Enter Length In Minutes"/>
 		<form:errors path="length" />
 		<br>
 		<form:label path="replacementCost">Replacement Cost:</form:label><br>
-		<form:input class="input" path="replacementCost" type="number" min="0" step="0.01" required="required"/>
+		<form:input class="input" path="replacementCost" type="number" min="0" step="0.01" required="required" placeholder="Enter Cost"/>
 		<br>
 	
 		<form:label path="rating">Rating:</form:label><br>

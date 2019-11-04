@@ -25,14 +25,12 @@
 </nav>
 
 <meta charset="UTF-8">
-<title>Find Film by ID</title>
+<title>Find Actor by ID</title>
 </head>
 <body>
-	<h1>Welcome to Almost IMDB JSP</h1>
-	<h2>Find A Film by ID</h2>
+<div class="filmForm">
+	<h1>Find An Actor by ID</h1>
 			${actor}
-	<p>Please use the fields below to find a actor in our database by ID
-		number.</p>
 		
 	<form action="findActorById.do" method="GET">
 		ID: 
@@ -42,6 +40,6 @@
 
 
 	</form>
-
+</div>
 </body>
 </html>

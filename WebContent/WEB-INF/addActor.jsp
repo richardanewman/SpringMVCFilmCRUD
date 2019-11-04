@@ -28,19 +28,22 @@
 </nav>
 
 <meta charset="UTF-8">
-<title>Register | Almost IMDB</title>
+<title>Add An Actor</title>
 </head>
 <body>
+<div class="filmForm">
+<h1>Add A New Actor</h1>
 	<form:form action="createFilm.do" method="POST" modelAttribute="actor">
 		<form:label path="firstName">Title:</form:label>
-		<form:input path="firstName" />
+		<form:input class="input" path="firstName" />
 		<form:errors path="firstName" />
 		<br />
 		<form:label path="lastName">Description:</form:label>
-		<form:input path="lastName" />
+		<form:input class="input" path="lastName" />
 		<form:errors path="lastName" />
 		<br />
-		<input type="submit" value="Submit" />
+		<input class="submit" type="submit" value="Submit" />
 	</form:form>
 </body>
+</div>
 </html>

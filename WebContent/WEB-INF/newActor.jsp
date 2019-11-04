@@ -28,6 +28,7 @@
 <title>New Actor Added</title>
 </head>
 <body>
+<div class="filmForm">
 	<c:choose>
 		<c:when test="${! empty newActor}">
       ${newActor}
@@ -40,15 +41,15 @@
 	<br>
 	<form action="deleteActor.do" method="POST">
 	Please enter actor ID to confirm deletion:
-	<input type="text" name="id">
-	<input type="submit" value="Delete Actor" />
+	<input class="input" type="text" name="id">
+	<input class="submit" type="submit" value="Delete Actor" />
 	</form>
 	<br>
 	<form action="editActorForm.do" method="GET">
 	Please enter actor ID to edit fields:
-	<input type="text" name="id">
-	<input type="submit" value="Edit Actor" />
+	<input class="input" type="text" name="id">
+	<input class="submit" type="submit" value="Edit Actor" />
 	</form>
-	
+	</div>
 </body>
 </html>

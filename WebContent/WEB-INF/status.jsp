@@ -76,19 +76,16 @@
 				</c:forEach>
 			</c:when>
 		</c:choose>
-		<span style="float: left">
-			<form action="deleteFilm.do" method="POST" align="left">
-				<strong>Please enter film ID to confirm deletion:</strong> 
+			<form action="deleteFilm.do" method="POST">
+				<strong>Please enter film ID to confirm deletion:</strong> <br>
 				<input class="input" type="text" name="id"> 
 				<input class="submit" type="submit" value="Delete Film" />
 			</form>
-		</span> <span style="float: right">
-			<form action="editFilmForm.do" method="GET" align="right">
-				<strong>Please enter film ID to edit fields:</strong>
+			<form action="editFilmForm.do" method="GET">
+				<strong>Please enter film ID to edit fields:</strong><br>
 				<input class="input" type="text" name="id"> 
 				<input class="submit" type="submit" value="Edit Film" />
 			</form>
-		</span>
 
 	</div>
 </body>

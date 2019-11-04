@@ -30,7 +30,13 @@
 <body>
 <div class="filmForm">
 <h1>Find A Film by ID</h1>
-${film }
+<c:choose>
+		<c:when test="${empty nofilm}">
+			<hr>
+			<strong>Oops! We didn't find anything by that ID.</strong>
+		</c:when>
+	</c:choose>
+
 <p>Please use the fields below to find a film in our database by ID number.</p>
 
 <form action="findFilmById.do" method="GET">

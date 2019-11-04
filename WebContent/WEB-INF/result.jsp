@@ -30,6 +30,7 @@
 <title>Search Results</title>
 </head>
 <body>
+<div class="filmForm">
 	<c:choose>
 		<c:when test="${! empty film}">
 			<strong>Title:</strong> ${film.title}
@@ -60,7 +61,7 @@
 			${noFilm}
 		</c:otherwise>
 	</c:choose>
-
+	
 
 	<c:choose>
 		<c:when test="${! empty result}">
@@ -69,22 +70,19 @@
 		</c:when>
 	</c:choose>
 
-	<hr>
-
-	<span style="float: left">
-		<form action="deleteFilm.do" method="POST" align="left">
-			<strong>Please enter film ID to confirm deletion:</strong> <input
-				type="number" name="id"> <input type="submit"
-				value="Delete Film" />
+	<form action="deleteFilm.do" method="POST">
+			<strong>Please enter film ID to confirm deletion:</strong><br> 
+			<input class="input" type="number" name="id"> 
+			<input class="submit" type="submit" value="Delete Film" />
 		</form>
-	</span>
 
-	<span style="float: right">
-		<form action="editFilmForm.do" method="GET" align="right">
-			<strong>Please enter film ID to edit fields:</strong><input
-				type="number" name="id"> <input type="submit"
-				value="Edit Film" />
+		<form action="editFilmForm.do" method="GET">
+			<strong>Please enter film ID to edit fields:</strong><br>
+			<input class="input" type="number" name="id"> 
+			<input class="submit" type="submit" value="Edit Film" />
 		</form>
-	</span>
+
+		
+</div>
 </body>
 </html>
