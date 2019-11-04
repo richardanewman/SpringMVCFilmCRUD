@@ -16,7 +16,7 @@ This application implements full web-based C.R.U.D. functionality, using Spring 
 
 ### Technologies
 
-Java Version 1.8, JEE, JSP & JEL, Spring MVC, Spring STS, Gradle, SQL, MySQL, MySQL Workbench HTML, CSS, XML, Bootstrap Git, Github, Eclipse IDE, Atom
+Java Version 1.8, JEE, JSP & JEL, Spring MVC, Spring STS, Gradle, Apache Tomcat 8.5, SQL, MySQL, MySQL Workbench, AWS EC2, HTML, CSS, XML, Bootstrap Git, Github, Eclipse IDE, Atom
 
 ### Topics Applied
 
