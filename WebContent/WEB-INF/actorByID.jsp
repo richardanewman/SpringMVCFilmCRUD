@@ -7,7 +7,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="resources/css/jsp-styles.css" rel="stylesheet" type="text/css">
+
+<nav class="navbar">
+<a href="index.html"><img src="resources/css/logo.png" width="85" height="58" class="d-inline-block align-top" alt=""></a>
+	<span class="navbar-toggle" id="js-navbar-toggle"> <i
+		class="fas fa-bars"></i>
+	</span> <a href="index.html" class="logo"></a>
+	<ul class="main-nav" id="js-menu">
+		<li><a href="index.html" class="nav-links">Home</a></li>
+		<li><a href="filmByID.html" class="nav-links">Film By ID</a></li>
+		<li><a href="addFilmForm.do" class="nav-links">Add Film</a></li>
+		<li><a href="searchFilm.html" class="nav-links">Search Film</a></li>
+	</ul>
+</nav>
+
 <meta charset="UTF-8">
 <title>Find Film by ID</title>
 </head>
@@ -21,8 +37,8 @@
 	<form action="findActorById.do" method="GET">
 		ID: 
 		
-		<input type="text" value="0" name="id" />
-		 <input type="submit"  value="Get Actor by ID" />
+		<input class="input" type="text" value="0" name="id" />
+		 <input class="submit" type="submit"  value="Get Actor by ID" />
 
 
 	</form>

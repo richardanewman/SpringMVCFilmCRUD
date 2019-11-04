@@ -25,22 +25,25 @@
 </nav>
 
 <meta charset="UTF-8">
-<title>Find Film by ID</title>
+<title>Add New Film</title>
 </head>
+<div class="filmForm">
+<h1>Add A New Film</h1>
 <form:form action="createFilm.do" method="POST" modelAttribute="film">
-		<form:label path="title">Title:</form:label>
-		<form:input path="title" required="required"/>
+		<form:label path="title">Title:</form:label><br>
+		<form:input class="input" path="title" required="required"/>
 		<form:errors path="title" />
 		<br />
-		<form:label path="description" >Description:</form:label>
-		<form:input path="description" required="required"/>
+		<form:label path="description" >Description:</form:label><br>
+		<form:input class="input" path="description" required="required"/>
 		<form:errors path="description" />
 		<br />
-		<form:label path="releaseYear">Release Year:</form:label>
-		<form:input path="releaseYear" required="required"/>
+		<form:label path="releaseYear">Release Year:</form:label><br>
+		<form:input class="input" path="releaseYear" required="required"/>
 		<form:errors path="releaseYear" />
 		<br />
-		<form:select path="languageId">Language: 
+		<form:label path="languageId">Language: </form:label><br>
+		<form:select path="languageId"> 
 			<form:option value="1" >English</form:option>
 			<form:option value="2">Italian</form:option>
 			<form:option value="3">Japanese</form:option>
@@ -48,23 +51,25 @@
 			<form:option value="5">French</form:option>
 			<form:option value="6">German</form:option>
 		</form:select>
-		<form:label path="rentalDuration">Rental Duration:</form:label>
-		<form:input path="rentalDuration" required="required"/>
+		<br>
+		<form:label path="rentalDuration">Rental Duration:</form:label><br>
+		<form:input class="input" path="rentalDuration" required="required"/>
 		<form:errors path="rentalDuration" />
 		<br />
-		<form:label path="length">Length:</form:label>
-		<form:input path="length" required="required"/>
+		<form:label path="length">Length:</form:label><br>
+		<form:input class="input" path="length" required="required"/>
 		<form:errors path="length" />
 		<br />
-		<form:label path="replacementCost">Replacement Cost:</form:label>
-		<form:input path="replacementCost" required="required"/>
+		<form:label path="replacementCost">Replacement Cost:</form:label><br>
+		<form:input class="input" path="replacementCost" required="required"/>
 		<form:errors path="replacementCost" />
 		<br />
-		<form:label path="rating">Rating:</form:label>
-		<form:input path="rating" required="required"/>
+		<form:label path="rating">Rating:</form:label><br>
+		<form:input class="input" path="rating" required="required"/>
 		<form:errors path="rating" />
 		<br />
-		<form:select path="specialFeatures">Special Features: 
+		<form:label path="specialFeatures">Special Features: </form:label><br>
+		<form:select path="specialFeatures"> 
 			<form:option value="Trailers">Trailers</form:option>
 			<form:option value="Commentaries">Commentaries</form:option>
 			<form:option value="Deleted Scenes">Deleted Scenes</form:option>
@@ -72,7 +77,8 @@
 			<form:option value="None">None</form:option>
 		</form:select>
 		<br />
-	    <input type="submit" value="Submit" />
+	    <input class="submit" type="submit" value="Submit" />
 	</form:form>
+	</div>
 </body>
 </html>
