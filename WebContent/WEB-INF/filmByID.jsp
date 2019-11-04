@@ -28,7 +28,7 @@
 <title>Find Film by ID</title>
 </head>
 <body>
-<div class="filmId">
+<div class="filmForm">
 <h1>Find A Film by ID</h1>
 ${film }
 <p>Please use the fields below to find a film in our database by ID number.</p>

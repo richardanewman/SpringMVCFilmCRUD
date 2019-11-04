@@ -19,17 +19,17 @@
 </nav>
 
 <meta charset="UTF-8">
-<title>Find Film by ID</title>
+<title>Search By Keyword</title>
 </head>
 <body>
-<h1>Welcome to Almost IMDB</h1>
-<h2>Search For A Film by Keyword</h2>
+<div class="filmForm">
+<h1>Search For A Film by Keyword</h1>
 <p>Please use the field below to find a film in our database by a keyword.</p>
 <form action="searchFilm.do" method="GET">
 	Keyword:
-	<input type="text"  required="required"  name="keyword"/> 
-    <input type="submit" value="Get Film by Keyword" />
+	<input class="input" type="text"  required="required"  name="keyword"/> 
+    <input class="submit" type="submit" value="Get Film by Keyword" />
 </form>
-
+</div>
 </body>
 </html>
