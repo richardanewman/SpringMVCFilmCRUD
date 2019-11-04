@@ -61,13 +61,13 @@
 	<br>
 	<form action="deleteFilm.do" method="POST">
 	Please enter film ID to confirm deletion:<br>
-	<input class="input" type="number" min="0" required="required" name="id">
+	<input class="input" type="number" min="1001" required="required" name="id">
 	<input class="submit" type="submit" value="Delete Film" />
 	</form>
 	<br>
 	<form action="editFilmForm.do" method="GET">
 	Please enter film ID to edit fields:<br>
-	<input class="input" type="text" min="0" required="required" name="id">
+	<input class="input" min="0" type="number" required="required" name="id">
 	<input class="submit" type="submit" value="Edit Film" />
 	</form>
 	

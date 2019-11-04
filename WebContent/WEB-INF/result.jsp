@@ -51,6 +51,8 @@
       <br>
 			<strong>Special Features:</strong> ${film.specialFeatures}
       <br>
+			<strong>Actors:</strong> ${film.actors}
+      <br>
     <c:if test="${not empty film.category }">
 			<strong>Film Category:</strong> ${film.category}
     </c:if>
@@ -72,13 +74,13 @@
 
 	<form action="deleteFilm.do" method="POST">
 			<strong>Please enter film ID to confirm deletion:</strong><br> 
-			<input class="input" type="number" name="id"> 
+			<input class="input" min="1001" type="number" name="id"> 
 			<input class="submit" type="submit" value="Delete Film" />
 		</form>
 
 		<form action="editFilmForm.do" method="GET">
 			<strong>Please enter film ID to edit fields:</strong><br>
-			<input class="input" type="number" name="id"> 
+			<input class="input" min="0" type="number" name="id"> 
 			<input class="submit" type="submit" value="Edit Film" />
 		</form>
 
