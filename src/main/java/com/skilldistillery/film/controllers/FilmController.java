@@ -74,7 +74,6 @@ public class FilmController {
 	@RequestMapping(path = "addFilmForm.do", method = RequestMethod.GET)
 	private ModelAndView getForm(@Valid Film film) {
 		ModelAndView mv = new ModelAndView();
-		
 		mv.setViewName("/WEB-INF/addFilm.jsp");
 		return mv;
 		

@@ -17,7 +17,7 @@ public class Film {
 	private int languageId;
 	
 	private int rentalDuration;
-	@Min(10) @Max(300)
+	
 	private int length;
 	private double replacementCost;
 	private String rating;
