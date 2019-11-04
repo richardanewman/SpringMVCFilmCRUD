@@ -26,21 +26,39 @@ The primary topics applied from Week 8 at Skill Distillery were using Dynamic We
 
     ### Cesar Moreno's Lessons Learned
 
-    Communication is key to prevent merger, this was a big lesson learn for us even though we didn’t have many issues but 
+    Communication is key to prevent merger, this was a big lesson learn for us even though we didn’t have many issues but
     the few we had communication helped with the solution.
 
-    For inputs we implemented required=“required” for the input so we could catch empty fields right before it hit the backend.
-    At the beginning we rushed into big ideas, such as adding users and logins, but soon realized that we needed MVP and refocused on the initial user story.
-
-    We learned that small changes can make big impacts, specially from the backend, implementations of new logic in controllers affected the the program as a whole.
-
+    For inputs we implemented required=“required” for the input so we could catch empty fields right before it hit the 
+    backend.
+    
+    At the beginning we rushed into big ideas, such as adding users and logins, but soon realized that we needed MVP and
+    refocused on the initial user story.
+    
+    We learned that small changes can make big impacts, specially from the backend, implementations of new logic in
+    controllers affected the the program as a whole.
+    
+    
     ### Richard Newman's Lessons Learned
 
-    Invaluable project. Learned lessons from each step of the task assignments and from pair programming with version control. Initially, we felt unprepared for this project. We felt that the material covered during the week was too complex for such a short period of time but the madness of the method proved to be invaluable. Struggling with connecting the all the moving parts, I.e. ORM (object relational mapping), the DAO (database accessor objects), autowired entities, dependency injection and inversion of control, taught me more in one weekend than I could ever learn by simply listening to lectures or reading in a book. It was the hands on keyboard and talking through the process and logic with my partner that helped tremendously.  
+    Invaluable project. Learned lessons from each step of the task assignments and from pair programming with version control.
+    Initially, we felt unprepared for this project. We felt that the material covered during the week was too complex for such
+    a short period of time but the madness of the method proved to be invaluable. Struggling with connecting the all the
+    moving parts, I.e. ORM (object relational mapping), the DAO (database accessor objects), autowired entities, dependency
+    injection and inversion of control, taught me more in one weekend than I could ever learn by simply listening to lectures
+    or reading in a book. It was the hands on keyboard and talking through the process and logic with my partner that helped
+    tremendously.  
 
-    In hindsight, we should have used better naming practices. As our project grew and as our request mapping became more complex, it became apparent that we should have used a better naming system for our JSPs. They work for now but will definitely have to be refactored.
+    In hindsight, we should have used better naming practices. As our project grew and as our request mapping became more
+    complex, it became apparent that we should have used a better naming system for our JSPs. They work for now but will
+    definitely have to be refactored.
 
-    Another valuable lessoned learned in keeping the code DRY. The navigation bar is a great example. As it stands now, the navigation bar is hardcoded into every jsp and html page. In order to add one new link, I would have to edit each page to change the site functionality. Instead, perhaps one JSP containing the navbar links which could then be referenced through Java Expression Language on the rest of the pages could be used. We will have to investigate this option further to see if it could be implemented.
+    Another valuable lessoned learned in keeping the code DRY. The navigation bar is a great example. As it stands now, the
+    navigation bar is hardcoded into every jsp and html page. In order to add one new link, I would have to edit each page to
+    change the site functionality. Instead, perhaps one JSP containing the navbar links which could then be referenced through
+    
+    Java Expression Language on the rest of the pages could be used. We will have to investigate this option further to see if
+    it could be implemented.
 
 
 ### How to Run
