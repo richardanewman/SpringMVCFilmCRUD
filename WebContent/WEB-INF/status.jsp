@@ -13,7 +13,9 @@ ${result}
 
 	<c:choose>
 		<c:when test="${! empty films}">
+		<c:forEach values="films" var="film">
       ${films}
+		</c:forEach>
     </c:when>
     </c:choose>
 

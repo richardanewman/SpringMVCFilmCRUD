@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.data.MVCFilmSiteDAO;
-import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -75,7 +74,6 @@ public class FilmController {
 	@RequestMapping(path = "addFilmForm.do", method = RequestMethod.GET)
 	private ModelAndView getForm(@Valid Film film) {
 		ModelAndView mv = new ModelAndView();
-		
 		mv.setViewName("/WEB-INF/addFilm.jsp");
 		return mv;
 		
