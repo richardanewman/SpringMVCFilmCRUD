@@ -29,19 +29,19 @@
 </head>
 <form:form action="createFilm.do" method="POST" modelAttribute="film">
 		<form:label path="title">Title:</form:label>
-		<form:input path="title" />
+		<form:input path="title" required="required"/>
 		<form:errors path="title" />
 		<br />
-		<form:label path="description">Description:</form:label>
-		<form:input path="description" />
+		<form:label path="description" >Description:</form:label>
+		<form:input path="description" required="required"/>
 		<form:errors path="description" />
 		<br />
 		<form:label path="releaseYear">Release Year:</form:label>
-		<form:input path="releaseYear" />
+		<form:input path="releaseYear" required="required"/>
 		<form:errors path="releaseYear" />
 		<br />
 		<form:select path="languageId">Language: 
-			<form:option value="1">English</form:option>
+			<form:option value="1" >English</form:option>
 			<form:option value="2">Italian</form:option>
 			<form:option value="3">Japanese</form:option>
 			<form:option value="4">Mandarin</form:option>
@@ -49,19 +49,19 @@
 			<form:option value="6">German</form:option>
 		</form:select>
 		<form:label path="rentalDuration">Rental Duration:</form:label>
-		<form:input path="rentalDuration" />
+		<form:input path="rentalDuration" required="required"/>
 		<form:errors path="rentalDuration" />
 		<br />
 		<form:label path="length">Length:</form:label>
-		<form:input path="length" />
+		<form:input path="length" required="required"/>
 		<form:errors path="length" />
 		<br />
 		<form:label path="replacementCost">Replacement Cost:</form:label>
-		<form:input path="replacementCost" />
+		<form:input path="replacementCost" required="required"/>
 		<form:errors path="replacementCost" />
 		<br />
 		<form:label path="rating">Rating:</form:label>
-		<form:input path="rating" />
+		<form:input path="rating" required="required"/>
 		<form:errors path="rating" />
 		<br />
 		<form:select path="specialFeatures">Special Features: 

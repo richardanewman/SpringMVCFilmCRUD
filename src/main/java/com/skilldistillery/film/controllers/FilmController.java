@@ -152,7 +152,7 @@ public class FilmController {
 		}
 
 		else {
-			mv.addObject("film", filmForDisplay.displayFilm());
+			mv.addObject("film", filmForDisplay);
 			mv.addObject("result", "Invalid Film!");
 			mv.setViewName("/WEB-INF/result.jsp");
 		}
