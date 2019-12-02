@@ -2,6 +2,10 @@
 
 ### Week 8 Homework Project for Skill Distillery
 
+This is a fork of our first pair programming project. The original repo can be found here: https://github.com/CMoreno04/SpringMVCFilmCRUD
+
+No additional work has been done on this fork since the project ended.
+
 ### Overview
 
 This is a team project: you will collaborate with your teammates to complete this project.
